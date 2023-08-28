@@ -6,56 +6,52 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface CmDrawer {
+        "drawertitle": string;
+        "open": () => Promise<void>;
+        "opened": boolean;
+    }
+    interface CmTooltip {
+        "message": string;
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLCmDrawerElement extends Components.CmDrawer, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLCmDrawerElement: {
+        prototype: HTMLCmDrawerElement;
+        new (): HTMLCmDrawerElement;
+    };
+    interface HTMLCmTooltipElement extends Components.CmTooltip, HTMLStencilElement {
+    }
+    var HTMLCmTooltipElement: {
+        prototype: HTMLCmTooltipElement;
+        new (): HTMLCmTooltipElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "cm-drawer": HTMLCmDrawerElement;
+        "cm-tooltip": HTMLCmTooltipElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface CmDrawer {
+        "drawertitle"?: string;
+        "opened"?: boolean;
+    }
+    interface CmTooltip {
+        "message"?: string;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "cm-drawer": CmDrawer;
+        "cm-tooltip": CmTooltip;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "cm-drawer": LocalJSX.CmDrawer & JSXBase.HTMLAttributes<HTMLCmDrawerElement>;
+            "cm-tooltip": LocalJSX.CmTooltip & JSXBase.HTMLAttributes<HTMLCmTooltipElement>;
         }
     }
 }

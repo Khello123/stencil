@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+span svg{
+  height: 30px;
+  width: 30px;
+  
+}
+p{
+  
+position: absolute;
+top: 30px;
+background-color: burlywood;
+border-radius: 7px;
+padding: 10px 15px;
+}

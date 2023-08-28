@@ -2,13 +2,68 @@
 <html dir="ltr" lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stencil Component Starter</title>
 
     <script type="module" src="/build/practice.esm.js"></script>
     <script nomodule src="/build/practice.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<link src="index.css">
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+.side-nav ul{
+list-style:none;
+}
+.side-nav li{
+    margin: 1rem;
+  
+    }
+.side-nav a{
+  text-decoration:none;
+  color: black;
+    }
+
+</style>
   </head>
   <body>
-    <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+
+<button onclick="openSlider()">
+  Click
+</button>
+
+    <cm-drawer drawertitle="Hello World"> 
+      <nav class="side-nav">
+<ul>
+  <li><a >hello</a></li>
+  <li><a >hello</a></li>
+  <li><a >hello</a></li>
+
+</ul>
+    </nav>
+  </cm-drawer>
+
+
+    <script>
+      const drawer=document.querySelector("cm-drawer")
+      // setTimeout(()=>{
+      //   // drawer.drawertitle="Khalil";
+      //  // drawer.setAttribute("drawertitle","Khalil Tadros");
+      // },3000)
+      function openSlider(){
+        drawer.open();
+      }
+    </script>
+
+
+<cm-tooltip message="Hi khalil">Hello wolrd</cm-tooltip>
+
+
   </body>
 </html>
