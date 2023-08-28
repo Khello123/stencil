@@ -10,7 +10,7 @@ export class CmDrawer {
   @Prop({ reflect: true }) drawertitle: string;
   @Prop({ reflect: true, mutable: true }) opened: boolean;
 
-  onCloseDrawer() {
+  async onCloseDrawer() {
     this.opened = false;
   }
 
@@ -19,7 +19,7 @@ this.showContactInfo=content==="contact";
   }
 
   @Method()
-  open(){
+  async open(){
     this.opened=true;
   }
 

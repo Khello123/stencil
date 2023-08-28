@@ -11,6 +11,8 @@ export namespace Components {
         "open": () => Promise<void>;
         "opened": boolean;
     }
+    interface CmStockPrice {
+    }
     interface CmTooltip {
         "message": string;
     }
@@ -22,6 +24,12 @@ declare global {
         prototype: HTMLCmDrawerElement;
         new (): HTMLCmDrawerElement;
     };
+    interface HTMLCmStockPriceElement extends Components.CmStockPrice, HTMLStencilElement {
+    }
+    var HTMLCmStockPriceElement: {
+        prototype: HTMLCmStockPriceElement;
+        new (): HTMLCmStockPriceElement;
+    };
     interface HTMLCmTooltipElement extends Components.CmTooltip, HTMLStencilElement {
     }
     var HTMLCmTooltipElement: {
@@ -30,6 +38,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "cm-drawer": HTMLCmDrawerElement;
+        "cm-stock-price": HTMLCmStockPriceElement;
         "cm-tooltip": HTMLCmTooltipElement;
     }
 }
@@ -38,11 +47,14 @@ declare namespace LocalJSX {
         "drawertitle"?: string;
         "opened"?: boolean;
     }
+    interface CmStockPrice {
+    }
     interface CmTooltip {
         "message"?: string;
     }
     interface IntrinsicElements {
         "cm-drawer": CmDrawer;
+        "cm-stock-price": CmStockPrice;
         "cm-tooltip": CmTooltip;
     }
 }
@@ -51,6 +63,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "cm-drawer": LocalJSX.CmDrawer & JSXBase.HTMLAttributes<HTMLCmDrawerElement>;
+            "cm-stock-price": LocalJSX.CmStockPrice & JSXBase.HTMLAttributes<HTMLCmStockPriceElement>;
             "cm-tooltip": LocalJSX.CmTooltip & JSXBase.HTMLAttributes<HTMLCmTooltipElement>;
         }
     }
